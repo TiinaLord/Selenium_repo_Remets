@@ -1,5 +1,3 @@
-import os
-import random
 import pytest
 import logging
 import datetime
@@ -8,7 +6,6 @@ import allure
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromiumService
 from selenium.webdriver.firefox.service import Service as FFService
-from selenium.webdriver.edge.options import Options as EdgeOptions
 
 
 def pytest_addoption(parser):
@@ -34,13 +31,8 @@ def pytest_runtest_makereport(item):
 @pytest.fixture()
 def browser(request):
     browser_name = request.config.getoption("--browser")
-    executor = request.config.getoption("--executor")
-    platform = request.config.getoption("--platform")
-    executor_url = f"http://{executor}:4444/wd/hub"
     url = request.config.getoption("--url")
     log_level = request.config.getoption("--log_level")
-    logs = request.config.getoption("--logs")
-    vnc = request.config.getoption("--vnc")
 
     logger = logging.getLogger(request.node.name)
     file_handler = logging.FileHandler(f"logs/{request.node.name}.log")
@@ -55,38 +47,13 @@ def browser(request):
     elif browser_name == "firefox":
         service = FFService()
         driver = webdriver.Firefox(service=service)
-    elif browser == "edge":
-        service = EdgeOptions()
-        driver = webdriver.Edge(service=service)
     else:
         raise ValueError
-
-    if browser != "safari":
-        service.set_capability("platformName", platform)
 
     allure.attach(
         name=driver.session_id,
         body=json.dumps(driver.capabilities),
         attachment_type=allure.attachment_type.JSON)
-
-    driver = webdriver.Remote(
-        command_executor=executor_url,
-        options=service
-    )
-
-    caps = {
-        "browserName": browser,
-        "selenoid:options": {
-            "enableVNC": vnc,
-            "name": os.getenv("BUILD_NUMBER", str(random.randint(9000, 10000))),
-            "enableLog": logs,
-
-        },
-        "acceptInsecureCerts": True,
-    }
-
-    for k, v in caps.items():
-        service.set_capability(k, v)
 
     driver.maximize_window()
     driver.get(url)
@@ -97,13 +64,6 @@ def browser(request):
     logger.info("Browser %s started" % browser)
 
     def fin():
-        attach = driver.get_screenshot_as_png()
-        if request.node.rep_setup.failed:
-            allure.attach(request.function.__name__, attach, allure.attach_type.PNG)
-        elif request.node.rep_setup.passed:
-            if request.node.rep_call.failed:
-                allure.attach(request.function.__name__, attach, allure.attach_type.PNG)
-        driver.quit()
         logger.info("===> Test %s finished at %s" % (request.node.name, datetime.datetime.now()))
 
     request.addfinalizer(fin)

@@ -1,0 +1,6 @@
+INFO ===> Test test_change_currency started at 2024-02-10 14:02:48.765140
+INFO Browser <function browser at 0x7fb44c29ad40> started
+DEBUG MainPage: Clicking element: ('css selector', '.btn-link > .hidden-xs')
+DEBUG MainPage: Clicking element: ('css selector', ".currency-select[name = 'EUR']")
+DEBUG MainPage: Comparing text: €
+INFO ===> Test test_change_currency finished at 2024-02-10 14:02:50.241544

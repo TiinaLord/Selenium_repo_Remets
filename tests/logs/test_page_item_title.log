@@ -1,0 +1,4 @@
+INFO ===> Test test_page_item_title started at 2024-02-10 14:02:35.935843
+INFO Browser <function browser at 0x7fb44c29ad40> started
+DEBUG ProductPage: Comparing text: Canon EOS 5D
+INFO ===> Test test_page_item_title finished at 2024-02-10 14:02:37.228819

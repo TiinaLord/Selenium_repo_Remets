@@ -1,0 +1,4 @@
+INFO ===> Test test_catalog_desktops_title_page started at 2024-02-10 14:02:34.355726
+INFO Browser <function browser at 0x7fb44c29ad40> started
+DEBUG CatalogPage: Comparing text: Desktops
+INFO ===> Test test_catalog_desktops_title_page finished at 2024-02-10 14:02:35.879703

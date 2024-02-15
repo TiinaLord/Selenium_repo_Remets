@@ -1,0 +1,4 @@
+INFO ===> Test test_register_page_radio_is_selected started at 2024-02-10 14:02:38.840439
+INFO Browser <function browser at 0x7fb44c29ad40> started
+DEBUG RegisterPage: Checking element is selected: ('css selector', ".radio-inline > input[value='0']")
+INFO ===> Test test_register_page_radio_is_selected finished at 2024-02-10 14:02:40.121019

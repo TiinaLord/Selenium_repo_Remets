@@ -1,0 +1,4 @@
+INFO ===> Test test_login_btn_is_displayed started at 2024-02-10 14:02:37.286779
+INFO Browser <function browser at 0x7fb44c29ad40> started
+DEBUG AdminPage: FInding display element: ('css selector', '.btn-primary')
+INFO ===> Test test_login_btn_is_displayed finished at 2024-02-10 14:02:38.782203

@@ -12,7 +12,7 @@ def pytest_addoption(parser):
     parser.addoption("--browser", action="store", default="chrome")
     parser.addoption("--url", action="store", default="http://192.168.0.111:8081")
     parser.addoption("--log_level", action="store", default="DEBUG")
-    parser.addoption("--executor", default="192.168.0.111")
+    parser.addoption("--executor", default="192.168.0.110")
     parser.addoption("--platform", default="Linux")
     parser.addoption("--vnc", action="store_true")
     parser.addoption("--logs", action="store_true")

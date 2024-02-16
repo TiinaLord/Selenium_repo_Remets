@@ -10,7 +10,7 @@ from selenium.webdriver.firefox.service import Service as FFService
 
 def pytest_addoption(parser):
     parser.addoption("--browser", action="store", default="chrome")
-    parser.addoption("--url", action="store", default="http://192.168.0.111:8081")
+    parser.addoption("--url", action="store", default="http://192.168.0.110:8081")
     parser.addoption("--log_level", action="store", default="DEBUG")
     parser.addoption("--executor", default="192.168.0.110")
     parser.addoption("--platform", default="Linux")

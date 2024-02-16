@@ -1,0 +1,15 @@
+INFO ===> Test test_add_new_item_by_admin started at 2024-02-10 14:02:40.177893
+INFO Browser <function browser at 0x7fb44c29ad40> started
+DEBUG AdminPage: Input text: ('css selector', ".form-control[name='username']")
+DEBUG AdminPage: Input text: ('css selector', ".form-control[name='password']")
+DEBUG AdminPage: Clicking element: ('css selector', '.btn-primary')
+DEBUG AdminPage_Profile: Clicking element: ('css selector', '#menu-catalog > a')
+DEBUG AdminPage_Profile: Clicking element: ('css selector', '#collapse1 > li:nth-child(2) > a')
+DEBUG AdminPage_Profile: Clicking element: ('css selector', 'div > a > i')
+DEBUG AdminPage_Profile: Input text: ('css selector', '#input-name1')
+DEBUG AdminPage_Profile: Input text: ('css selector', '#input-meta-title1')
+DEBUG AdminPage_Profile: Clicking element: ('css selector', '#form-product > ul > li:nth-child(2)')
+DEBUG AdminPage_Profile: Input text: ('css selector', '#input-model')
+DEBUG AdminPage_Profile: Clicking element: ('css selector', 'div.page-header > div button')
+DEBUG AdminPage_Profile: Comparing text: Success: You have modified products!
+INFO ===> Test test_add_new_item_by_admin finished at 2024-02-10 14:02:43.680895
